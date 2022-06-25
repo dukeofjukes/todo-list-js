@@ -1,4 +1,4 @@
-const todoFactory = (
+const taskFactory = (
   title = "",
   description = ""
   // dueDate,
@@ -22,4 +22,4 @@ const todoFactory = (
   };
 };
 
-export { todoFactory };
+export { taskFactory };
