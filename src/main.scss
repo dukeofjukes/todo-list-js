@@ -1,5 +1,22 @@
-.project-line {
-  .title {
-    color: red;
-  }
+$body-color: rgb(29, 22, 32);
+$main-text-color: rgb(255, 236, 198);
+$link-color: rgb(131, 212, 146);
+
+body {
+  background-color: $body-color;
+  color: $main-text-color;
+  margin: 40px;
+}
+
+button.project {
+  /* remove default styling */
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+
+  /* show hand cursor */
+  cursor: pointer;
+
+  color: $link-color;
 }

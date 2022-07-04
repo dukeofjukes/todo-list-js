@@ -1,3 +1,5 @@
+import { renderProjectPage } from "./projectPage";
+
 const renderHomePage = (projects) => {
   const content = document.querySelector(".content");
 
@@ -5,13 +7,23 @@ const renderHomePage = (projects) => {
     <h2>Projects</h2>
   `;
 
-  projects.forEach(project => {
+  projects.forEach((project) => {
     content.innerHTML += `
-      <div class="project-line">
-        <div class="title">${project.title}</div>
+      <div> 
+        <button class="project" id="${project.title}-link">${project.title}</button>
       </div>
     `;
+
+    // content.querySelector(`#${project.title}-link`).addEventListener("click", () => {
+    //   renderProjectPage(project);
+    // });
   });
-}
+  
+  projects.forEach((project) => {
+    document.querySelector("#" + CSS.escape(project.title) + "-link").addEventListener("click", () => {
+      renderProjectPage(project);
+    })
+  });
+};
 
 export { renderHomePage };
