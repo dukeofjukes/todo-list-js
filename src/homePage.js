@@ -1,28 +1,24 @@
 import { renderProjectPage } from "./projectPage";
 
 const renderHomePage = (projects) => {
-  const content = document.querySelector(".content");
+  const sidebar = document.querySelector(".sidebar");
 
-  content.innerHTML = `
-    <h2>Projects</h2>
-  `;
+  sidebar.innerHTML = "";
 
   projects.forEach((project) => {
-    content.innerHTML += `
+    sidebar.innerHTML += `
       <div> 
         <button class="project" id="${project.title}-link">${project.title}</button>
       </div>
     `;
-
-    // content.querySelector(`#${project.title}-link`).addEventListener("click", () => {
-    //   renderProjectPage(project);
-    // });
   });
-  
+
   projects.forEach((project) => {
-    document.querySelector("#" + CSS.escape(project.title) + "-link").addEventListener("click", () => {
-      renderProjectPage(project);
-    })
+    document
+      .querySelector("#" + CSS.escape(project.title) + "-link")
+      .addEventListener("click", () => {
+        renderProjectPage(project);
+      });
   });
 };
 

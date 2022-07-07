@@ -1,22 +1,68 @@
 $body-color: rgb(29, 22, 32);
+$navbar-color: rgb(101, 83, 125);
+$sidebar-color: rgb(63, 46, 70);
 $main-text-color: rgb(255, 236, 198);
 $link-color: rgb(131, 212, 146);
+
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   background-color: $body-color;
   color: $main-text-color;
-  margin: 40px;
+  height: 100vh;
+  width: 100vw;
+}
+
+nav {
+  padding: 1rem;
+  background-color: $navbar-color;
+  display: flex;
+
+  /* TODO */
+  .left {}
+  .right {}
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  /* TODO: this fills the screen, albiet with overflow from the nav... */
+  height: 100%;
+
+  .sidebar {
+    background-color: $sidebar-color;
+    padding: 1rem;
+  }
+
+  .tasks {
+    padding: 1rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 button.project {
   /* remove default styling */
   background: none;
   border: none;
-  padding: 0;
+  padding: 4px;
+  padding-left: 0;
   font: inherit;
 
   /* show hand cursor */
   cursor: pointer;
 
+  font-size: 1.2rem;
   color: $link-color;
 }

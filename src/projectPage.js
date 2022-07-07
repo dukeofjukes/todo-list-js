@@ -1,9 +1,16 @@
 const renderProjectPage = (project) => {
-  const content = document.querySelector(".content");
+  const tasksView = document.querySelector(".tasks");
 
-  content.innerHTML = `
+  tasksView.innerHTML = `
     <h2>${project.title}</h2>
+    <div>${project.description}</div>
   `;
-}
 
-export { renderProjectPage }
+  project.tasks.forEach((tasks) => {
+    // TODO: add table rows? show each task along with an edit button, remove button, and checkbox
+    tasksView.innerHTML = `
+    `;
+  });
+};
+
+export { renderProjectPage };
