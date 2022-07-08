@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,400&display=swap');
+
+$font-stack: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 $body-color: rgb(29, 22, 32);
 $navbar-color: rgb(101, 83, 125);
 $sidebar-color: rgb(63, 46, 70);
 $main-text-color: rgb(255, 236, 198);
 $link-color: rgb(131, 212, 146);
+$new-project-btn-color: rgb(131, 212, 146);
 
 * {
+  font-family: $font-stack;
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -17,17 +22,23 @@ html, body {
 body {
   background-color: $body-color;
   color: $main-text-color;
+  
+  /* take up entire page w/o scrollbars */
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 nav {
   padding: 1rem;
   background-color: $navbar-color;
   display: flex;
+  justify-content: space-between;
 
   /* TODO */
-  .left {}
+  .left {
+  }
   .right {}
 }
 
@@ -35,34 +46,56 @@ nav {
   display: grid;
   grid-template-columns: 1fr 4fr;
 
-  /* TODO: this fills the screen, albiet with overflow from the nav... */
+  /* fill rest of screen */
   height: 100%;
 
   .sidebar {
     background-color: $sidebar-color;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
   }
 
   .tasks {
-    padding: 1rem;
+    padding: 3rem;
   }
 }
 
 h2 {
+  padding: 0;
+  margin: 0;
   font-size: 2rem;
 }
 
-button.project {
-  /* remove default styling */
-  background: none;
+button {
+  cursor: pointer;
   border: none;
+  background: none;
+  font: inherit;
+}
+
+button#new-project-btn {
+  border-radius: 6px;
   padding: 4px;
+  margin: 4px 0 4px 0;
+
+  background-color: $new-project-btn-color;
+  font: inherit;
+  font-size: 1.2rem;
+}
+
+
+button#home-btn {
+  color: $main-text-color;
+}
+
+button.project {
+  padding: 4px;
+  margin: 0;
   padding-left: 0;
   font: inherit;
 
-  /* show hand cursor */
-  cursor: pointer;
-
   font-size: 1.2rem;
+  // TODO: try hiding text when div is too small
   color: $link-color;
 }

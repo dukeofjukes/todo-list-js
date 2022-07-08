@@ -6,11 +6,20 @@ const renderProjectPage = (project) => {
     <div>${project.description}</div>
   `;
 
-  project.tasks.forEach((tasks) => {
+  project.tasks.forEach((task) => {
     // TODO: add table rows? show each task along with an edit button, remove button, and checkbox
-    tasksView.innerHTML = `
-    `;
+    // tasksView.innerHTML = `
+    // `;
   });
 };
 
-export { renderProjectPage };
+const renderHomePage = () => {
+  const tasksView = document.querySelector(".tasks");
+
+  tasksView.innerHTML = `
+    <h2>Welcome to Todo App!</h2>
+    
+  `;
+};
+
+export { renderProjectPage, renderHomePage };

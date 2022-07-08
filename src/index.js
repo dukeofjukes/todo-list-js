@@ -1,7 +1,13 @@
 import "./main.scss";
-import { taskFactory } from "./task.js";
-import { projectFactory } from "./project.js";
-import { renderHomePage } from "./homePage.js";
+
+// data
+import { taskFactory } from "./task";
+import { projectFactory } from "./project";
+
+// UI
+import { renderNavBar } from "./navBarView";
+import { renderSideBar } from "./sideBarView";
+import { renderHomePage } from "./projectPageView";
 
 // TODO: get data from localStorage
 
@@ -10,5 +16,7 @@ let project2 = projectFactory("Library book dropoff", "return a couple books");
 let projects = [project1, project2];
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderHomePage(projects);
-})
+  renderNavBar();
+  renderSideBar(projects);
+  renderHomePage();
+});

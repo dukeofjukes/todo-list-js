@@ -1,9 +1,11 @@
-import { renderProjectPage } from "./projectPage";
+import { renderProjectPage } from "./projectPageView";
 
-const renderHomePage = (projects) => {
+const renderSideBar = (projects) => {
   const sidebar = document.querySelector(".sidebar");
 
-  sidebar.innerHTML = "";
+  sidebar.innerHTML = `
+    <button id="new-project-btn"><i class="fa-solid fa-plus"></i></button>
+  `;
 
   projects.forEach((project) => {
     sidebar.innerHTML += `
@@ -11,6 +13,10 @@ const renderHomePage = (projects) => {
         <button class="project" id="${project.title}-link">${project.title}</button>
       </div>
     `;
+  });
+
+  document.querySelector("#new-project-btn").addEventListener("click", () => {
+    renderNewProjectModal();
   });
 
   projects.forEach((project) => {
@@ -22,4 +28,4 @@ const renderHomePage = (projects) => {
   });
 };
 
-export { renderHomePage };
+export { renderSideBar };
