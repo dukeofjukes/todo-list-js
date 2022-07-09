@@ -6,10 +6,17 @@ const renderProjectPage = (project) => {
     <div>${project.description}</div>
   `;
 
+  // TODO: add a checkbox from font awesome
   project.tasks.forEach((task) => {
-    // TODO: add table rows? show each task along with an edit button, remove button, and checkbox
-    // tasksView.innerHTML = `
-    // `;
+    tasksView.innerHTML += `
+      <div class="task">
+        <div class="left">
+          <div class="checkbox"></div>
+          ${task.title}
+        </div>
+        <div class="right"></div>
+      </div>
+    `;
   });
 };
 
@@ -18,7 +25,8 @@ const renderHomePage = () => {
 
   tasksView.innerHTML = `
     <h2>Welcome to Todo App!</h2>
-    
+    <p>Create a project on the left to get started!</p>
+    <p>Or, jump into an existing project.</p>
   `;
 };
 

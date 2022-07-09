@@ -1,7 +1,7 @@
 const projectFactory = (title = "", description = "") => {
   let tasks = [];
-  const addTask = (newTodo) => {
-    tasks.push(newTodo);
+  const addTask = (newTask) => {
+    tasks.push(newTask);
   };
   const removeTask = (index) => {
     tasks.splice(index, 1);
@@ -21,6 +21,13 @@ const projectFactory = (title = "", description = "") => {
     get description() {
       return description;
     },
+
+    get tasks() {
+      return tasks;
+    },
+
+    addTask,
+    removeTask,
   };
 };
 

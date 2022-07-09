@@ -3,8 +3,13 @@ const taskFactory = (
   description = ""
   // dueDate,
   // priority,
-  // checkList
 ) => {
+  let complete = false;
+
+  const toggleComplete = () => {
+    complete = !complete;
+  };
+
   return {
     set title(newTitle) {
       title = newTitle;
@@ -19,6 +24,14 @@ const taskFactory = (
     get description() {
       return description;
     },
+
+    set complete(newComplete) {
+      complete = newComplete;
+    },
+    get complete() {
+      return this.complete;
+    },
+    toggleComplete,
   };
 };
 
