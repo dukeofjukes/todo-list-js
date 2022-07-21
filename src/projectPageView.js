@@ -1,29 +1,38 @@
 const renderProjectPage = (project) => {
-  const tasksView = document.querySelector(".tasks");
+  const mainView = document.querySelector(".main");
 
-  tasksView.innerHTML = `
+  mainView.innerHTML = `
     <h2>${project.title}</h2>
     <div>${project.description}</div>
   `;
 
-  // TODO: add a checkbox from font awesome
   project.tasks.forEach((task) => {
-    tasksView.innerHTML += `
+    mainView.innerHTML += `
       <div class="task">
         <div class="left">
-          <div class="checkbox"></div>
-          ${task.title}
+          <div class="checkbox">
+          ${
+            task.complete
+              ? `<i class="fa-solid fa-square-check"></i>`
+              : `<i class="fa-solid fa-square"></i>`
+          }
+          </div>
+          <div class="task-title">${task.title}</div>
         </div>
         <div class="right"></div>
       </div>
     `;
   });
+
+  mainView.querySelectorAll(".checkbox").forEach((checkbox) => {
+    checkbox.addEventListener("click", () => {});
+  });
 };
 
 const renderHomePage = () => {
-  const tasksView = document.querySelector(".tasks");
+  const mainView = document.querySelector(".main");
 
-  tasksView.innerHTML = `
+  mainView.innerHTML = `
     <h2>Welcome to Todo App!</h2>
     <p>Create a project on the left to get started!</p>
     <p>Or, jump into an existing project.</p>

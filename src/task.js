@@ -29,7 +29,7 @@ const taskFactory = (
       complete = newComplete;
     },
     get complete() {
-      return this.complete;
+      return complete;
     },
     toggleComplete,
   };
